@@ -14,7 +14,7 @@ export default function TransactionList() {
       <h3>History</h3>
       <ul className='list'>
         {transactions.map(({ id, text, amount }) => (
-          <Transaction key={id} text={text} amount={amount} />
+          <Transaction key={id} id={id} text={text} amount={amount} />
         ))}
       </ul>
     </>

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-export default function Transaction({ text, amount }) {
+import { Store } from '../../context/store';
+
+export default function Transaction({ id, text, amount }) {
+  const { deleteTransaction } = useContext(Store);
+
   const sign = amount > 0 ? '+' : '-';
 
   return (
@@ -10,7 +14,9 @@ export default function Transaction({ text, amount }) {
         <span>
           {sign}${Math.abs(amount)}
         </span>
-        <button className='delete-btn'>X</button>
+        <button className='delete-btn' onClick={() => deleteTransaction(id)}>
+          X
+        </button>
       </li>
     </>
   );
